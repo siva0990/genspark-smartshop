@@ -1,0 +1,51 @@
+<div class="products-wrapper py-5">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-5">
+      <div>
+        <h1 class="page-title">Products Catalog</h1>
+        <p class="text-muted">Explore high-quality products available today</p>
+      </div>
+      <div class="badge bg-product-count">{{ products().length }} Items</div>
+    </div>
+
+    @if (loading()) {
+      <div class="d-flex flex-column align-items-center justify-content-center py-5">
+        <div class="spinner-grow text-pink" role="status" style="width: 3rem; height: 3rem;">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <p class="text-muted mt-3">Fetching amazing products for you...</p>
+      </div>
+    } @else if (errorMessage()) {
+      <div class="alert alert-danger p-4" role="alert">
+        <h4 class="alert-heading"><i class="bi bi-x-circle-fill me-2"></i>Error Occurred</h4>
+        <p class="mb-0">{{ errorMessage() }}</p>
+      </div>
+    } @else {
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+        @for (product of products(); track product.id) {
+          <div class="col">
+            <div class="product-card h-100" (click)="handleProductClick(product.id)">
+              <div class="image-container">
+                <img [src]="product.thumbnail" [alt]="product.title" class="product-img">
+                <span class="product-category">{{ product.category }}</span>
+              </div>
+              
+              <div class="product-info">
+                <h5 class="product-title">{{ product.title }}</h5>
+                <p class="product-brand text-muted">{{ product.brand || 'Generic' }}</p>
+                
+                <div class="d-flex justify-content-between align-items-center mt-auto pt-3 border-top border-dark-subtle">
+                  <div class="product-price">${{ product.price.toFixed(2) }}</div>
+                  <div class="product-rating">
+                    <i class="bi bi-star-fill text-warning me-1"></i>
+                    <span>{{ product.rating }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    }
+  </div>
+</div>

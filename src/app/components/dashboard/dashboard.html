@@ -1,0 +1,63 @@
+<div class="dashboard-wrapper">
+  <div class="container py-5">
+    <div class="dashboard-hero mb-5">
+      <div class="hero-content text-center text-md-start">
+        <h1 class="welcome-heading">
+          Welcome back, <span class="highlight">{{ currentUser()?.firstName }} {{ currentUser()?.lastName }}</span>!
+        </h1>
+        <p class="hero-subtext">Manage your account, browse available products, or review your profile details below.</p>
+      </div>
+    </div>
+
+    <h3 class="section-title mb-4">Quick Navigation</h3>
+    <div class="row g-4">
+      <!-- Products Card -->
+      <div class="col-md-4">
+        <div class="nav-card h-100">
+          <div class="card-icon bg-pink">
+            <i class="bi bi-cart3"></i>
+          </div>
+          <div class="card-body-custom">
+            <h4>Products Catalog</h4>
+            <p>Browse our extensive list of items, view prices, ratings, and select items for deeper details.</p>
+            <a routerLink="/products" class="btn btn-card mt-3">
+              Explore Products <i class="bi bi-arrow-right-short"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Details Card -->
+      <div class="col-md-4">
+        <div class="nav-card h-100">
+          <div class="card-icon bg-orange">
+            <i class="bi bi-file-earmark-spreadsheet"></i>
+          </div>
+          <div class="card-body-custom">
+            <h4>Product Spotlight</h4>
+            <p>Directly jump into checking a featured item details page using dynamic parameters.</p>
+            <a routerLink="/products/1" class="btn btn-card mt-3">
+              View Sample Item <i class="bi bi-arrow-right-short"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Profile Card -->
+      <div class="col-md-4">
+        <div class="nav-card h-100">
+          <div class="card-icon bg-purple">
+            <i class="bi bi-person-badge"></i>
+          </div>
+          <div class="card-body-custom">
+            <h4>User Profile</h4>
+            <p>View your personalized card with all information retrieved from the DummyJSON authentication.</p>
+            <a routerLink="/profile" class="btn btn-card mt-3">
+              Manage Profile <i class="bi bi-arrow-right-short"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

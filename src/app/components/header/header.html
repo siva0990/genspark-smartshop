@@ -1,0 +1,49 @@
+@if (currentUser()) {
+  <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom shadow-sm">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" routerLink="/dashboard">
+        <i class="bi bi-bag-heart-fill brand-icon me-2"></i>
+        <span>SmartShop</span>
+      </a>
+      
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/dashboard" routerLinkActive="active">
+              <i class="bi bi-grid-fill me-1"></i> Dashboard
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/products" routerLinkActive="active">
+              <i class="bi bi-cart-fill me-1"></i> Products
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/profile" routerLinkActive="active">
+              <i class="bi bi-person-badge-fill me-1"></i> Profile
+            </a>
+          </li>
+        </ul>
+        
+        <div class="d-flex align-items-center gap-3">
+          <div class="user-greeting d-flex align-items-center">
+            @if (currentUser().image) {
+              <img [src]="currentUser().image" alt="Avatar" class="user-avatar me-2">
+            } @else {
+              <i class="bi bi-person-circle fs-5 me-2 text-primary"></i>
+            }
+            <span class="greeting-text">Hello, <strong>{{ currentUser().firstName }}</strong></span>
+          </div>
+          <button (click)="handleLogout()" class="btn btn-outline-logout d-flex align-items-center gap-2">
+            <i class="bi bi-box-arrow-right"></i>
+            <span>Logout</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+}

@@ -1,0 +1,4 @@
+.app-main-content {
+  min-height: calc(100vh - 56px);
+  padding-bottom: 40px;
+}
