@@ -40,8 +40,8 @@ src/app/
 | `/profile` | Profile | Yes |
 
 ## Demo Credentials
-* **Username:** `emilys`
-* **Password:** `emilyspass`
+* **Username:** `siva`
+* **Password:** `Siva@0990`
 
 ## How to Run
 ### Setup & Start
